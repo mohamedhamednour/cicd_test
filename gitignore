@@ -1,0 +1,32 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.pkl
+*.log
+
+# Virtualenv
+env/
+venv/
+*.env
+*.venv
+
+# Django
+*.sqlite3
+db.sqlite3
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# Linux
+*~
