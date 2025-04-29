@@ -14,8 +14,8 @@ jobs:
       postgres:
         image: postgres:13
         env:
-          POSTGRES_USER: bit
-          POSTGRES_PASSWORD: P@ssw0rd
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
           POSTGRES_DB: cicd
         ports:
           - 5432:5432
@@ -27,8 +27,8 @@ jobs:
 
     env:
       POSTGRES_DB: cicd
-      POSTGRES_USER: bit
-      POSTGRES_PASSWORD: P@ssw0rd
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
       POSTGRES_HOST: localhost
       POSTGRES_PORT: 5432
       DJANGO_SETTINGS_MODULE: shopping.settings  
