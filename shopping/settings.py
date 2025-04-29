@@ -92,13 +92,12 @@ WSGI_APPLICATION = 'shopping.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('POSTGRES_DB'),
-        'USER': config('POSTGRES_USER'),
-        'PASSWORD': config('POSTGRES_PASSWORD'),
-        'HOST': config('POSTGRES_HOST'),
-        'PORT': config('POSTGRES_PORT'),
-    },
- 
+        'NAME': os.getenv('POSTGRES_DB', 'cicd'),
+        'USER': os.getenv('POSTGRES_USER', 'postgres'),  # Changed from 'postgres'
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'password'),  # Changed from 'password'
+        'HOST': os.getenv('POSTGRES_HOST', 'localhost'),
+        'PORT': os.getenv('POSTGRES_PORT', '5432'),
+    }
 }
 
 # Password validation
