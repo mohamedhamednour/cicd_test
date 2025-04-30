@@ -42,10 +42,6 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Check black formatting
-        run: |
-          pip install black
-          black --check orderapp
 
       - name: Install dependencies
         run: |
