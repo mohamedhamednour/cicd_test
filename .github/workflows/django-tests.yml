@@ -45,7 +45,6 @@ jobs:
       - name: Check black Formatting Orderapp
         run: |
           pip install black
-          black  orderapp 
           black --check orderapp 
            
 
