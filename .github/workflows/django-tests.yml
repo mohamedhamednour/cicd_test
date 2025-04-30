@@ -1,4 +1,4 @@
-name: Django Tests
+name: Django CI/CD
 
 on:
   push:
@@ -12,7 +12,7 @@ jobs:
 
     services:
       postgres:
-        image: postgres:14  # Updated to use PostgreSQL 14
+        image: postgres:14
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
@@ -42,11 +42,10 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Check black Formatting Orderapp
+      - name: Check black formatting
         run: |
           pip install black
-          black --check orderapp 
-           
+          black --check orderapp
 
       - name: Install dependencies
         run: |
@@ -56,3 +55,11 @@ jobs:
         run: |
           python manage.py migrate
           pytest
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' 
+    steps:
+      - name: Dummy Deploy Step 🚀
+        run: echo "🚀 Deployment step running... (this is just a test CD step)"
