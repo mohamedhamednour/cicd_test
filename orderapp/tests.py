@@ -2,6 +2,7 @@ import pytest
 from datetime import date, timedelta
 from .models import Author, Book, Offer
 
+
 @pytest.mark.django_db
 class TestModels:
 
@@ -18,7 +19,7 @@ class TestModels:
             publication_date=date.today(),
             price=99.99,
             stock=10,
-            author=author
+            author=author,
         )
         assert book.title == "Django Simplified"
         assert book.author == author
@@ -31,14 +32,14 @@ class TestModels:
             publication_date=date.today(),
             price=49.99,
             stock=5,
-            author=author
+            author=author,
         )
         offer = Offer.objects.create(
             name="New Year Discount",
             discount=15.00,
             start_date=date.today(),
             end_date=date.today() + timedelta(days=10),
-            book=book
+            book=book,
         )
         assert offer.book == book
         assert offer.discount == 15.00
